@@ -1,0 +1,607 @@
+{
+  "personalInfo": {
+    "name": "Regine Aniban, Adv Dip IT",
+    "title": "Business Analyst (CX & Agentic AI)",
+    "location": "Melbourne, Australia",
+    "contact": {
+      "email": "aniban.regine@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/regine-aniban/",
+      "portfolio": "to be created",
+      "github": "to be created"
+    },
+    "summary": "Customer Experience and Business Analyst professional with 13+ years across technical support, customer service, and business analysis. Adept at bridging customer needs with business and technical requirements to deliver effective, scalable solutions. Skilled in incident management, requirements gathering, process analysis, and stakeholder collaboration. Recognised for service excellence, analytical thinking, and simplifying complex issues. Currently focused on AI-driven business analysis and CX transformation, leveraging conversational AI, automation, and data insights to enhance user journeys and outcomes.",
+    "elevator_pitch": "I\u2019m a Business Analyst specialising in customer experience and agentic AI. With 13+ years spanning technical support, service excellence, and business analysis, I bridge business and technical needs to design efficient processes and AI-powered solutions that elevate customer journeys.",
+    "photo": "file-K9qW5xMp3GqNYRq8V2kc9L"
+  },
+  "experience": [
+    {
+      "company": "Asurion Australia Pty Ltd",
+      "position": "Customer Experience Specialist",
+      "duration": "2024 \u2013 2025",
+      "description": "Delivered end-to-end support for product and service complaints, journey mapping, UAT, and process improvements.",
+      "achievements": [
+        "Awarded Asurion Ambassador Award (2024) for service excellence.",
+        "Achieved 100% SLA compliance while improving efficiency by 35%."
+      ],
+      "technologies": [
+        "Horizon Console One (CRM)",
+        "Excel",
+        "Power BI"
+      ],
+      "skills_developed": [
+        "Customer Journey Mapping",
+        "Process Improvement",
+        "UAT Execution"
+      ],
+      "impact": "Enhanced CX through optimized complaint management and better alignment between business and customer outcomes.",
+      "keywords": [
+        "Customer Experience",
+        "Complaint Management",
+        "CRM",
+        "UAT",
+        "Journey Mapping"
+      ]
+    },
+    {
+      "company": "e& by Etisalat",
+      "position": "Business Analyst / Knowledgebase Author",
+      "duration": "2020 \u2013 2023",
+      "description": "Led SOP/knowledgebase documentation and cross-functional workshops to improve service delivery and staff readiness.",
+      "achievements": [
+        "Helped launch Help & Support app feature reducing direct agent contact by 50%.",
+        "Improved FAQ resolution time by 80%, enhancing customer self-service adoption."
+      ],
+      "technologies": [
+        "Confluence",
+        "SharePoint",
+        "Oracle Knowledgebase Tool",
+        "Flowable Tool",
+        "Firebase App Distribution",
+        "Avaya"
+      ],
+      "skills_developed": [
+        "Knowledge Management",
+        "Root Cause Analysis",
+        "Cross-functional Facilitation"
+      ],
+      "impact": "Standardized documentation, streamlined issue resolution, and boosted customer satisfaction.",
+      "keywords": [
+        "Business Analysis",
+        "Knowledgebase",
+        "Root Cause Analysis",
+        "Customer Experience"
+      ]
+    },
+    {
+      "company": "e& by Etisalat",
+      "position": "Senior Customer Service Specialist",
+      "duration": "2015 \u2013 2020",
+      "description": "Supported telecom/network issues, handled escalations, ensured SLA compliance, and optimized backend systems.",
+      "achievements": [
+        "Achieved Excellent Performance Award (2018) \u2013 Highest Customer Satisfaction Score."
+      ],
+      "technologies": [
+        "Avaya",
+        "Oracle Knowledgebase",
+        "CRM systems"
+      ],
+      "skills_developed": [
+        "Customer Service",
+        "SLA Management",
+        "Complaint Resolution"
+      ],
+      "impact": "Reduced churn and ensured SLA compliance while improving reporting accuracy.",
+      "keywords": [
+        "Telecom Support",
+        "Customer Service",
+        "SLA Compliance"
+      ]
+    },
+    {
+      "company": "Teletech Philippines",
+      "position": "Technical / Customer Support Specialist",
+      "duration": "2012 \u2013 2015",
+      "description": "Provided L2 support for Telstra mobile networks via live chat and call channels.",
+      "achievements": [
+        "Received The Ultimate Telstra Award (2014) \u2013 Highest Customer Satisfaction Score."
+      ],
+      "technologies": [
+        "Siebel",
+        "Mobile HelpDesk",
+        "Genesys",
+        "Avaya"
+      ],
+      "skills_developed": [
+        "Technical Support",
+        "Live Chat Support",
+        "Complaint Resolution"
+      ],
+      "impact": "Consistently met or exceeded KPIs, improving customer satisfaction and retention.",
+      "keywords": [
+        "Technical Support",
+        "Telecom",
+        "Telstra",
+        "Customer Retention"
+      ]
+    }
+  ],
+  "skills": {
+    "technical": [
+      {
+        "category": "Business Analysis",
+        "skills": [
+          {
+            "name": "Requirements Gathering",
+            "proficiency": "Advanced",
+            "experience": "3 years",
+            "context": "Stakeholder interviews, requirement documentation",
+            "projects": [
+              "Help & Support App"
+            ]
+          },
+          {
+            "name": "Process Analysis",
+            "proficiency": "Advanced",
+            "experience": "3 years",
+            "context": "Business process mapping",
+            "projects": [
+              "CX Process Optimization"
+            ]
+          },
+          {
+            "name": "Documentation (User Stories, Specs, Wireframes)",
+            "proficiency": "Advanced",
+            "experience": "4 years",
+            "context": "BA deliverables",
+            "projects": [
+              "Knowledgebase Project"
+            ]
+          },
+          {
+            "name": "Testing & UAT",
+            "proficiency": "Expert",
+            "experience": "4 years",
+            "context": "System update validation",
+            "projects": [
+              "Asurion System UAT"
+            ]
+          },
+          {
+            "name": "CX Design & Journey Mapping",
+            "proficiency": "Expert",
+            "experience": "4 years",
+            "context": "Customer journey analysis",
+            "projects": [
+              "CX Optimization"
+            ]
+          }
+        ]
+      },
+      {
+        "category": "AI & Automation",
+        "skills": [
+          {
+            "name": "Conversational AI",
+            "proficiency": "Intermediate",
+            "experience": "1 year",
+            "context": "Agentic AI project",
+            "projects": [
+              "AI Digital Twin"
+            ]
+          },
+          {
+            "name": "RAG Pipeline (Neon, Upstash Vector DB)",
+            "proficiency": "Intermediate",
+            "experience": "1 year",
+            "context": "AI-powered portfolio",
+            "projects": [
+              "AI Digital Twin"
+            ]
+          },
+          {
+            "name": "Vercel AI SDK",
+            "proficiency": "Intermediate",
+            "experience": "1 year",
+            "context": "Chat + voice integration",
+            "projects": [
+              "AI Digital Twin"
+            ]
+          },
+          {
+            "name": "Twilio Telephony Integration",
+            "proficiency": "Intermediate",
+            "experience": "1 year",
+            "context": "Virtual screening calls",
+            "projects": [
+              "AI Digital Twin"
+            ]
+          }
+        ]
+      },
+      {
+        "category": "General Tools",
+        "skills": [
+          {
+            "name": "Excel",
+            "proficiency": "Advanced",
+            "experience": "10+ years",
+            "context": "Reporting, analytics",
+            "projects": [
+              "CX Reporting"
+            ]
+          },
+          {
+            "name": "Power BI",
+            "proficiency": "Intermediate",
+            "experience": "2 years",
+            "context": "CX analytics dashboards",
+            "projects": [
+              "CX Reporting"
+            ]
+          },
+          {
+            "name": "SQL",
+            "proficiency": "Beginner",
+            "experience": "1 year",
+            "context": "Queried via AI-assisted workflows",
+            "projects": []
+          },
+          {
+            "name": "Confluence",
+            "proficiency": "Intermediate",
+            "experience": "2 years",
+            "context": "Knowledge documentation",
+            "projects": [
+              "Knowledgebase"
+            ]
+          },
+          {
+            "name": "Jira",
+            "proficiency": "Intermediate",
+            "experience": "2 years",
+            "context": "Agile project tracking",
+            "projects": [
+              "BA Internship"
+            ]
+          }
+        ]
+      }
+    ],
+    "soft_skills": [
+      {
+        "skill": "Communication",
+        "examples": [
+          "Created clear requirement docs bridging stakeholders & IT"
+        ],
+        "context": "Requirement gathering and system implementation"
+      },
+      {
+        "skill": "Stakeholder Management",
+        "examples": [
+          "Facilitated cross-functional workshops addressing process gaps"
+        ],
+        "context": "Process alignment"
+      },
+      {
+        "skill": "Analytical Thinking",
+        "examples": [
+          "Performed root cause analysis leading to faster issue resolution"
+        ],
+        "context": "CX improvements"
+      },
+      {
+        "skill": "Leadership",
+        "examples": [
+          "Trained frontline staff, cutting resolution time by 40%"
+        ],
+        "context": "Service excellence"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "name": "Digital Twin \u2013 AI-Powered Interactive Portfolio",
+      "description": "Virtual AI-powered portfolio enabling conversational interactions (chat, voice, phone) with career background.",
+      "technologies": [
+        "Neon (Postgres)",
+        "Upstash Vector DB",
+        "MCP",
+        "Vercel AI SDK",
+        "Google Auth",
+        "Twilio",
+        "OpenAI Realtime API"
+      ],
+      "role": "Designer & Builder",
+      "outcomes": [
+        "Functional conversational AI portfolio with multimodal interfaces."
+      ],
+      "challenges": [
+        "Building with AI-first workflow",
+        "Integrating multiple APIs"
+      ],
+      "links": {
+        "demo": "to be created",
+        "repository": "to be created",
+        "documentation": "to be created"
+      }
+    },
+    {
+      "name": "Business Analyst Internship Live Project",
+      "description": "Industry project as part of Employability Advantage program.",
+      "technologies": [
+        "to be confirmed"
+      ],
+      "role": "Business Analyst Intern",
+      "outcomes": [
+        "to be documented"
+      ],
+      "challenges": [
+        "to be documented"
+      ],
+      "links": {
+        "demo": "to be created",
+        "repository": "to be created",
+        "documentation": "to be created"
+      }
+    },
+    {
+      "name": "Agentic AI Workshop & Live Industry Project",
+      "description": "AI workshop and live industry project focused on agentic workflows.",
+      "technologies": [
+        "to be confirmed"
+      ],
+      "role": "Participant",
+      "outcomes": [
+        "to be documented"
+      ],
+      "challenges": [
+        "to be documented"
+      ],
+      "links": {
+        "demo": "to be created",
+        "repository": "to be created",
+        "documentation": "to be created"
+      }
+    }
+  ],
+  "education": [
+    {
+      "institution": "Melbourne Metropolitan College",
+      "degree": "Advanced Diploma of IT",
+      "field": "Telecommunication Network Engineering",
+      "graduation": "2025 (expected)",
+      "achievements": [],
+      "relevant_coursework": [
+        "Network Engineering",
+        "Telecommunications Systems"
+      ],
+      "projects": [],
+      "gpa": "N/A"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Business Analyst User Stories Bootcamp",
+      "issuer": "Employability Advantage (ECA)",
+      "date": "July 2024",
+      "expiry": "",
+      "verification": "",
+      "skills": [
+        "User Stories",
+        "Agile BA"
+      ]
+    },
+    {
+      "name": "Business Benefits Realization Foundations",
+      "issuer": "PMI",
+      "date": "Feb 2025",
+      "expiry": "",
+      "verification": "",
+      "skills": [
+        "Benefits Realization",
+        "Project Value Tracking"
+      ]
+    },
+    {
+      "name": "Agile Requirements Foundations",
+      "issuer": "IIBA",
+      "date": "Feb 2025",
+      "expiry": "",
+      "verification": "",
+      "skills": [
+        "Agile Requirements"
+      ]
+    },
+    {
+      "name": "Requirements Elicitation for Business Analysis",
+      "issuer": "LinkedIn Learning",
+      "date": "Mar 2025",
+      "expiry": "",
+      "verification": "",
+      "skills": [
+        "Requirements Elicitation"
+      ]
+    }
+  ],
+  "content_chunks": [
+    {
+      "id": "chunk_exp_asurion",
+      "type": "experience",
+      "title": "Asurion CX Specialist",
+      "content": "At Asurion (2024\u20132025), managed complaint resolution with Horizon Console One CRM, conducted UAT, created SOPs, and trained staff. Achieved 100% SLA compliance and boosted efficiency by 35%.",
+      "metadata": {
+        "category": "work_experience",
+        "tags": [
+          "Asurion",
+          "CX",
+          "CRM",
+          "UAT"
+        ],
+        "importance": "high",
+        "date_range": "2024-2025"
+      }
+    },
+    {
+      "id": "chunk_exp_etisalat_ba",
+      "type": "experience",
+      "title": "Etisalat Business Analyst / Knowledgebase Author",
+      "content": "At e& by Etisalat (2020\u20132023), authored SOPs, led workshops, and conducted root cause analysis. Helped launch the Help & Support app feature, reducing direct agent contact by 50% and improving FAQ resolution time by 80%.",
+      "metadata": {
+        "category": "work_experience",
+        "tags": [
+          "Etisalat",
+          "Business Analyst",
+          "Knowledgebase"
+        ],
+        "importance": "high",
+        "date_range": "2020-2023"
+      }
+    },
+    {
+      "id": "chunk_exp_etisalat_senior",
+      "type": "experience",
+      "title": "Etisalat Senior Customer Service Specialist",
+      "content": "At e& by Etisalat (2015\u20132020), supported telecom services, managed escalations, ensured SLA compliance, and optimized backend systems. Awarded Highest Customer Satisfaction Score (2018).",
+      "metadata": {
+        "category": "work_experience",
+        "tags": [
+          "Etisalat",
+          "Customer Service",
+          "Telecom"
+        ],
+        "importance": "medium",
+        "date_range": "2015-2020"
+      }
+    },
+    {
+      "id": "chunk_exp_teletech",
+      "type": "experience",
+      "title": "Teletech Technical Support Specialist",
+      "content": "At Teletech (2012\u20132015), provided L2 support for Telstra mobile networks via Siebel and Genesys. Awarded Ultimate Telstra Award (2014) for customer satisfaction.",
+      "metadata": {
+        "category": "work_experience",
+        "tags": [
+          "Teletech",
+          "Telstra",
+          "Technical Support"
+        ],
+        "importance": "medium",
+        "date_range": "2012-2015"
+      }
+    },
+    {
+      "id": "chunk_project_digitaltwin",
+      "type": "project",
+      "title": "AI Digital Twin Portfolio",
+      "content": "Designed and built a conversational AI-powered portfolio (2025) using RAG pipelines (Neon + Upstash Vector DB), Vercel AI SDK, Twilio, and OpenAI Realtime API. Enabled chat, voice, and phone-based recruiter interactions.",
+      "metadata": {
+        "category": "project",
+        "tags": [
+          "AI",
+          "Digital Twin",
+          "Portfolio",
+          "Conversational AI"
+        ],
+        "importance": "high",
+        "date_range": "2025"
+      }
+    },
+    {
+      "id": "chunk_project_internship",
+      "type": "project",
+      "title": "Business Analyst Internship Live Project",
+      "content": "Participated in Employability Advantage BA internship project (2025), applying Agile BA practices in a live industry setting.",
+      "metadata": {
+        "category": "project",
+        "tags": [
+          "Internship",
+          "Business Analysis",
+          "Agile"
+        ],
+        "importance": "medium",
+        "date_range": "2025"
+      }
+    },
+    {
+      "id": "chunk_project_aiworkshop",
+      "type": "project",
+      "title": "Agentic AI Workshop & Live Project",
+      "content": "Joined an industry workshop (2025) on agentic AI workflows, contributing to a live project focused on CX automation.",
+      "metadata": {
+        "category": "project",
+        "tags": [
+          "Agentic AI",
+          "Workshop",
+          "Automation"
+        ],
+        "importance": "medium",
+        "date_range": "2025"
+      }
+    },
+    {
+      "id": "chunk_skills",
+      "type": "skills",
+      "title": "Core Skills Overview",
+      "content": "Expert in UAT, CX Design, and Journey Mapping. Advanced in requirements gathering, process analysis, documentation, and stakeholder management. Intermediate in Conversational AI, RAG pipelines, and Vercel AI SDK. Strong tools knowledge in Excel, Power BI, Jira, and Confluence.",
+      "metadata": {
+        "category": "skills",
+        "tags": [
+          "Business Analysis",
+          "CX",
+          "AI",
+          "UAT",
+          "Journey Mapping"
+        ],
+        "importance": "high",
+        "date_range": ""
+      }
+    }
+  ],
+  "search_keywords": [
+    "AI-powered portfolio",
+    "Agentic AI",
+    "Agentic Workflows",
+    "Asurion",
+    "Business Analyst",
+    "Business Process Optimization",
+    "CRM",
+    "CX Transformation",
+    "Conversational AI",
+    "Customer Experience",
+    "Customer Journey Mapping",
+    "Customer Support",
+    "Digital Twin",
+    "Etisalat",
+    "Journey Mapping",
+    "Knowledge Management",
+    "Knowledgebase",
+    "Neon",
+    "OpenAI Realtime API",
+    "Postgres",
+    "Power BI",
+    "Power BI dashboards",
+    "Process Analysis",
+    "RAG pipeline",
+    "Requirements Gathering",
+    "Root Cause Analysis",
+    "Service Excellence",
+    "Stakeholder Management",
+    "Telecom",
+    "Telecom Support",
+    "Telstra",
+    "Twilio",
+    "UAT",
+    "Upstash Vector DB",
+    "Vercel AI SDK"
+  ],
+  "metadata": {
+    "created": "2025-09-11T09:42:50.589375",
+    "version": "1.0",
+    "data_quality_score": 95,
+    "completeness": {
+      "experience": "100%",
+      "skills": "100%",
+      "projects": "90%"
+    }
+  }
+}
