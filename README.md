@@ -96,7 +96,7 @@ python digital_twin_mcp_server.py
 
 ---
 
-## 📁 digitaltwin.json
+## 📁 mytwin_refined.json
 
 This JSON is your **knowledge base**. It includes:
 
