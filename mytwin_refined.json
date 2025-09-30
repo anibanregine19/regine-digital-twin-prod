@@ -1,0 +1,308 @@
+{
+  "personalInfo": {
+    "name": "Regine Aniban",
+    "title": "Business Analyst | Requirements Analysis | Process Improvement | Stakeholder Management",
+    "location": "Melbourne, Australia",
+    "contact": {
+      "phone": "0493 693 259",
+      "email": "aniban.regine@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/regine-aniban/",
+      "portfolio": "to be created",
+      "github": "to be created"
+    },
+    "summary": "Accomplished Business Analyst with 13+ years of progressive experience driving digital transformation and process optimization across telecommunications, technology, and customer experience domains. Proven expertise in requirements elicitation, stakeholder management, and agile delivery methodologies. Demonstrated track record of translating complex business needs into actionable technical solutions, resulting in improved operational efficiency and enhanced customer satisfaction. Recognized for exceptional analytical skills and ability to facilitate cross-functional collaboration in fast-paced, technology-driven environments.",
+    "elevator_pitch": "I'm an accomplished Business Analyst with 13+ years of progressive experience driving digital transformation and process optimization. I specialize in requirements elicitation, stakeholder management, and translating complex business needs into actionable technical solutions that improve operational efficiency and enhance customer satisfaction.",
+    "photo": "file-K9qW5xMp3GqNYRq8V2kc9L",
+    "core_competencies": {
+      "requirements_analysis": "Requirements elicitation, business process mapping, functional specifications, and user story development with acceptance criteria",
+      "stakeholder_management": "Cross-functional team leadership, workshop facilitation, and executive communication to ensure project alignment and successful outcomes",
+      "process_improvement": "Gap analysis, root cause analysis, and process optimization to drive operational efficiency and business value",
+      "agile_delivery": "Scrum/Kanban methodologies, sprint planning, backlog management, and iterative solution development",
+      "solution_testing": "UAT coordination, test planning execution, and solution validation against business requirements",
+      "change_management": "Training facilitation, knowledge transfer, and adoption support for new processes and system implementations",
+      "business_intelligence": "Data analysis, reporting, and business case development to support strategic decision-making",
+      "technical_systems": "Oracle ERP, CRM platforms, Jira, Confluence, MS Visio, and business intelligence tools for analysis and documentation"
+    }
+  },
+
+  "professional_experience": [
+    {
+      "company": "Asurion Australia Pty Ltd",
+      "position": "Systems Analyst | Business Solutions",
+      "duration": "January 2024 – September 2025",
+      "description": "Led comprehensive business analysis initiatives to optimize CRM systems and operational processes, delivering measurable improvements in system performance and user experience.",
+      "achievements": [
+        "Requirements Management: Conducted detailed requirements gathering sessions with stakeholders, producing comprehensive functional specifications that reduced development rework by 30%",
+        "Process Optimization: Analyzed end-to-end incident management workflows, identifying 5 critical bottlenecks and implementing solutions that improved case resolution time by 25%",
+        "Stakeholder Facilitation: Led cross-functional workshops with business units, IT teams, and program managers, ensuring alignment on project scope and deliverables for 8+ concurrent initiatives",
+        "Solution Validation: Designed and executed comprehensive UAT frameworks, validating 15+ system implementations against business requirements with 98% accuracy rate",
+        "Knowledge Management: Developed training materials and conducted 20+ workshops, achieving 95% user adoption rate for new system functionalities"
+      ],
+      "recognition": "2x Spot Bonus Awards for exceptional contribution during new client program launch | Asurion Ambassador Award (2024) for service excellence"
+    },
+    {
+      "company": "e& by Etisalat",
+      "position": "Business Analyst | Process Improvement",
+      "duration": "August 2020 – July 2023",
+      "description": "Drove business process analysis and system enhancement initiatives, focusing on self-service optimization and knowledge management standardization.",
+      "achievements": [
+        "Process Analysis: Conducted comprehensive workflow analysis across operations teams, identifying process inefficiencies and recommending solutions that improved productivity by 20%",
+        "Requirements Definition: Collaborated with IT and operations to define functional requirements for system enhancements, ensuring 100% alignment with business objectives",
+        "Agile Delivery Support: Facilitated sprint planning and backlog prioritization sessions, supporting successful delivery of 12+ system enhancement projects",
+        "Documentation Standards: Established standardized SOP framework and knowledge management processes, improving information accessibility by 40%",
+        "Change Management: Led training and adoption initiatives for new processes, achieving 90% stakeholder buy-in across multiple business units"
+      ],
+      "key_achievement": "Instrumental in launching Help & Support feature in My Etisalat app, resulting in 35% reduction in support ticket volume"
+    },
+    {
+      "company": "e& by Etisalat",
+      "position": "Operations Analyst | Business Process Specialist",
+      "duration": "June 2015 – August 2020",
+      "description": "Performed comprehensive business analysis across telecommunications operations, focusing on process improvement and customer experience optimization.",
+      "achievements": [
+        "End-to-End Process Analysis: Analyzed complex telecom operations including billing, provisioning, and complaint management, identifying 15+ improvement opportunities",
+        "Requirements Gathering: Collaborated with stakeholders to define business requirements for system enhancements, ensuring solutions met operational needs",
+        "Testing & Validation: Led system testing initiatives including test planning and execution, validating business requirements for 10+ system implementations",
+        "Stakeholder Advisory: Served as subject matter expert, providing guidance on process changes and facilitating informed decision-making across business units",
+        "Solution Implementation: Supported implementation of business solutions, ensuring alignment with organizational goals and user requirements"
+      ],
+      "recognition": "\"Excellent Performance\" award for achieving highest customer satisfaction score (2018)"
+    },
+    {
+      "company": "Teletech Philippines",
+      "position": "Process & Customer Experience Analyst",
+      "duration": "July 2012 – June 2015",
+      "description": "Conducted business process analysis and improvement initiatives supporting Telstra mobile network operations, focusing on operational efficiency and service quality enhancement.",
+      "achievements": [
+        "Process Investigation: Analyzed business processes supporting mobile network operations, identifying gaps and improvement opportunities",
+        "Documentation Development: Created comprehensive functional specifications and process documentation to support system development and automation initiatives",
+        "Solution Testing: Participated in end-to-end solution testing, ensuring technical workflows met business requirements",
+        "Requirements Analysis: Served as liaison between consumer/business clients and technical teams, translating requirements into actionable solutions",
+        "Cross-functional Collaboration: Worked with diverse teams to implement operational improvements aligned with strategic business objectives"
+      ],
+      "recognition": "Telstra Ultimate Award for Highest Customer Satisfaction Score (2014)"
+    }
+  ],
+
+  "professional_development": {
+    "recent_training": {
+      "name": "Agentic AI Workshop & Live Industry Project",
+      "duration": "August – September 2025",
+      "project": "AI-Powered Interactive Portfolio Development",
+      "skills_demonstrated": [
+        "Business Analysis Application: Conducted user requirements analysis, defined functional specifications, and designed system workflows for multi-modal AI interface",
+        "Technical Coordination: Managed implementation using advanced technology stack including Neon PostgreSQL, Vector DB, and OpenAI APIs",
+        "Skills Demonstrated: Requirements analysis, stakeholder management, solution validation, and AI-first system design"
+      ]
+    }
+  },
+
+  "education": [
+    {
+      "degree": "Advanced Diploma of IT – Telecommunication Network Engineering",
+      "institution": "Melbourne Metropolitan College",
+      "duration": "May 2023 – August 2025"
+    },
+    {
+      "degree": "Associate in Information Technology",
+      "institution": "Laguna State Polytechnic University, Philippines",
+      "duration": "June 2008 – April 2010"
+    }
+  ],
+
+  "interview_qa": {
+    "professional_background": [
+      {
+        "question": "Could you tell me about your professional background and key areas of expertise?",
+        "answer": "I'm an accomplished Business Analyst with 13+ years of progressive experience driving digital transformation and process optimization across telecommunications, technology, and customer experience domains. My expertise spans requirements elicitation, stakeholder management, and agile delivery methodologies. I have a proven track record of translating complex business needs into actionable technical solutions, resulting in improved operational efficiency and enhanced customer satisfaction. I'm particularly skilled at facilitating cross-functional collaboration in fast-paced, technology-driven environments, as demonstrated by my recent work at Asurion where I achieved a 30% reduction in development rework through comprehensive requirements gathering.",
+        "category": "background",
+        "keywords": ["experience", "expertise", "background", "skills", "business analysis", "digital transformation", "requirements", "stakeholder management"]
+      },
+      {
+        "question": "What is your approach to managing complex projects?",
+        "answer": "My approach centers on structured stakeholder engagement and systematic process analysis. I start by conducting detailed requirements gathering sessions with all stakeholders to ensure alignment on project scope and deliverables. At Asurion, I successfully managed 8+ concurrent initiatives by leading cross-functional workshops with business units, IT teams, and program managers. I break complex projects into manageable phases, employing agile delivery methodologies including sprint planning and backlog management. Throughout the project lifecycle, I maintain clear documentation standards and implement comprehensive UAT frameworks to validate solutions against business requirements - achieving a 98% accuracy rate in my recent role.",
+        "category": "project_management",
+        "keywords": ["project management", "methodology", "approach", "stakeholder management", "documentation", "agile", "UAT"]
+      },
+      {
+        "question": "How do you handle conflicting priorities or stakeholder requirements?",
+        "answer": "I take a collaborative, evidence-based approach to resolving conflicts. First, I conduct comprehensive workflow analysis to understand each stakeholder's underlying business drivers and constraints. At e& by Etisalat, I successfully achieved 90% stakeholder buy-in across multiple business units by facilitating workshops that focused on business objectives rather than individual preferences. I use impact assessments and data analysis to present trade-offs clearly, helping stakeholders make informed decisions. When conflicts arise, I leverage my experience in gap analysis and root cause analysis to identify win-win solutions that prioritize business value while maintaining operational efficiency.",
+        "category": "stakeholder_management",
+        "keywords": ["conflict resolution", "stakeholder management", "priorities", "decision-making", "collaboration", "business value"]
+      }
+    ],
+    "experience_achievements": [
+      {
+        "question": "What was your role in systems analysis at Asurion?",
+        "answer": "As Systems Analyst at Asurion Australia, I led comprehensive business analysis initiatives to optimize CRM systems and operational processes. My key achievements included conducting detailed requirements gathering sessions that reduced development rework by 30%, and analyzing end-to-end incident management workflows where I identified 5 critical bottlenecks and implemented solutions that improved case resolution time by 25%. I also designed and executed comprehensive UAT frameworks, validating 15+ system implementations against business requirements with a 98% accuracy rate. My work was recognized with 2 Spot Bonus Awards and the Asurion Ambassador Award in 2024 for service excellence.",
+        "category": "systems_analysis",
+        "keywords": ["systems analysis", "CRM optimization", "requirements gathering", "process improvement", "UAT", "achievements"]
+      },
+      {
+        "question": "What was your most significant achievement at e& by Etisalat?",
+        "answer": "My most significant achievement was being instrumental in launching the Help & Support feature in the My Etisalat app, which resulted in a 35% reduction in support ticket volume. As Business Analyst focused on Process Improvement, I conducted comprehensive workflow analysis across operations teams, identifying process inefficiencies and recommending solutions that improved productivity by 20%. I also established standardized SOP framework and knowledge management processes, improving information accessibility by 40%. The project required extensive stakeholder management and change management initiatives, achieving 90% stakeholder buy-in across multiple business units.",
+        "category": "process_improvement",
+        "keywords": ["app development", "process improvement", "productivity", "stakeholder management", "change management", "achievements"]
+      },
+      {
+        "question": "Can you describe a situation where you improved a business process significantly?",
+        "answer": "At Asurion, I redesigned the incident management process by conducting comprehensive workflow analysis and stakeholder engagement. I identified 5 critical bottlenecks through detailed process mapping and root cause analysis. By implementing streamlined workflows and comprehensive training programs for 20+ workshops, I achieved a 25% improvement in case resolution time and 95% user adoption rate for new system functionalities. The success was measured through systematic UAT frameworks and continuous monitoring, demonstrating the effectiveness of evidence-based process optimization.",
+        "category": "process_improvement",
+        "keywords": ["process improvement", "workflow analysis", "training", "user adoption", "achievements"]
+      },
+      {
+        "question": "Tell me about your experience with requirements analysis and stakeholder management.",
+        "answer": "Throughout my career, I've conducted requirements analysis for complex telecommunications and technology environments. At Asurion, I led cross-functional workshops with business units, IT teams, and program managers, ensuring alignment on project scope and deliverables for 8+ concurrent initiatives. My approach involves detailed requirements gathering sessions that produce comprehensive functional specifications - achieving 100% alignment with business objectives at e& by Etisalat. I've successfully facilitated sprint planning and backlog prioritization sessions, supporting delivery of 12+ system enhancement projects while maintaining stakeholder engagement across diverse business units.",
+        "category": "requirements_stakeholder",
+        "keywords": ["requirements analysis", "stakeholder management", "workshops", "functional specifications", "agile delivery"]
+      }
+    ],
+    "methodologies_tools": [
+      {
+        "question": "What methodologies do you use for business analysis and process improvement?",
+        "answer": "I primarily use Agile methodologies including Scrum and Kanban for iterative solution development, sprint planning, and backlog management. For business analysis, I employ systematic approaches including requirements elicitation, business process mapping, and user story development with acceptance criteria. For process improvement, I use gap analysis, root cause analysis, and process optimization techniques to drive operational efficiency. I also apply Lean principles to identify inefficiencies and optimize workflows, as demonstrated by my 25% improvement in case resolution time at Asurion through comprehensive workflow analysis.",
+        "category": "methodologies",
+        "keywords": ["methodologies", "agile", "scrum", "kanban", "process improvement", "analysis", "requirements elicitation"]
+      },
+      {
+        "question": "Which tools and technologies do you commonly use in your work?",
+        "answer": "I have extensive experience with Oracle ERP and CRM platforms for system analysis and optimization. For project management and documentation, I use Jira for tracking and Confluence for knowledge management. For business process mapping and analysis, I'm proficient in MS Visio and business intelligence tools. I also work with UAT coordination tools and test planning execution platforms to validate solutions against business requirements. Recently, I've expanded into AI technologies including Neon PostgreSQL, Vector DB, and OpenAI APIs for advanced system design, as demonstrated in my AI-powered portfolio project.",
+        "category": "tools",
+        "keywords": ["tools", "technologies", "Oracle ERP", "CRM", "Jira", "Confluence", "MS Visio", "AI tools", "UAT"]
+      },
+      {
+        "question": "How do you approach requirements gathering and documentation?",
+        "answer": "My approach is systematic and stakeholder-focused. I conduct detailed requirements gathering sessions with all relevant stakeholders, producing comprehensive functional specifications that ensure 100% alignment with business objectives. I create user stories with acceptance criteria and develop business process mapping to visualize workflows. At Asurion, this approach reduced development rework by 30%. I also facilitate cross-functional workshops and use structured documentation standards to ensure requirements are traceable and linked back to business objectives, making them accessible to both technical and business audiences.",
+        "category": "requirements",
+        "keywords": ["requirements", "documentation", "stakeholder engagement", "functional specifications", "user stories", "process mapping"]
+      }
+    ],
+    "soft_skills": [
+      {
+        "question": "How do you handle difficult conversations with stakeholders?",
+        "answer": "I approach them with empathy and preparation. I focus on understanding their concerns, backing up discussions with data or analysis, and keeping the conversation solution-focused. By maintaining transparency and professionalism, I can turn potential conflicts into opportunities for collaboration.",
+        "category": "communication",
+        "keywords": ["communication", "stakeholder management", "conflict resolution", "empathy"]
+      },
+      {
+        "question": "What's your approach to mentoring team members?",
+        "answer": "I believe in leading by example and creating a supportive environment where team members feel comfortable asking questions. I provide structured guidance—such as walkthroughs of documentation standards or analysis techniques—while also encouraging independent problem-solving. I share lessons learned from my own career to help them avoid common pitfalls.",
+        "category": "leadership",
+        "keywords": ["mentoring", "leadership", "team development", "guidance"]
+      },
+      {
+        "question": "How do you ensure effective communication across different departments?",
+        "answer": "I adapt my communication style to the audience. For executives, I provide concise summaries highlighting risks and outcomes. For technical teams, I share detailed requirements and workflows. Regular touchpoints, clear documentation, and active listening ensure alignment across departments.",
+        "category": "communication",
+        "keywords": ["communication", "stakeholder management", "documentation", "alignment"]
+      }
+    ],
+    "problem_solving": [
+      {
+        "question": "How do you approach solving complex business problems?",
+        "answer": "I break problems down into smaller components, conduct root cause analysis, and validate assumptions with stakeholders. I then explore multiple solutions, weighing feasibility against business value, before recommending the best option. Testing and iteration are key to ensuring the solution is practical and sustainable.",
+        "category": "problem_solving",
+        "keywords": ["problem solving", "analysis", "methodology", "solutions"]
+      },
+      {
+        "question": "Can you describe how you've driven innovation in your previous roles?",
+        "answer": "Most recently, I designed a Digital Twin AI-powered portfolio as a personal project, allowing recruiters to interact with my career profile via chat, voice, or phone. This showcased not only innovation but also how AI can transform customer and stakeholder engagement. Similarly, in my professional roles, I've introduced journey mapping and process automation ideas to optimise service delivery and improve CX.",
+        "category": "innovation",
+        "keywords": ["innovation", "AI", "transformation", "automation", "projects"]
+      },
+      {
+        "question": "What's your methodology for identifying and mitigating risks?",
+        "answer": "I start by identifying risks through stakeholder discussions, historical data, and process reviews. I then assess each risk in terms of impact and likelihood, documenting them in a risk register. For mitigation, I propose preventive actions and contingency plans, ensuring accountability is assigned. Continuous monitoring and review are key to adjusting strategies as projects evolve.",
+        "category": "risk_management",
+        "keywords": ["risk management", "methodology", "mitigation", "planning"]
+      }
+    ],
+    "business_analysis": [
+      {
+        "question": "Tell me about your approach to requirements analysis and functional specifications.",
+        "answer": "My approach to requirements analysis is comprehensive and stakeholder-centric. I conduct detailed requirements gathering sessions with business stakeholders, IT teams, and end users to produce functional specifications that ensure 100% alignment with business objectives. At Asurion, I reduced development rework by 30% through systematic requirements elicitation and documentation. I create user stories with acceptance criteria, develop business process mapping, and maintain traceability matrices to link requirements back to business objectives. My specifications are tailored to the audience - technical details for developers, simplified summaries for business stakeholders.",
+        "category": "requirements_analysis",
+        "keywords": ["requirements analysis", "functional specifications", "stakeholder engagement", "user stories", "business process mapping"]
+      },
+      {
+        "question": "How do you ensure quality in your business analysis deliverables?",
+        "answer": "I follow a comprehensive quality assurance approach that includes systematic validation and testing. I design and execute UAT frameworks to validate solutions against business requirements, achieving 98% accuracy rate in my recent role at Asurion. My process includes thorough documentation, stakeholder review cycles, and solution testing validation. I also implement knowledge transfer and training programs - conducting 20+ workshops at Asurion and achieving 95% user adoption rate for new functionalities. This systematic approach to quality has contributed to recognition through awards including the Asurion Ambassador Award for service excellence.",
+        "category": "quality_assurance",
+        "keywords": ["quality assurance", "UAT", "validation", "testing", "documentation", "training"]
+      },
+      {
+        "question": "Describe your experience with agile delivery and project coordination.",
+        "answer": "I have extensive experience supporting agile delivery methodologies, particularly in facilitating sprint planning and backlog prioritization sessions. At e& by Etisalat, I supported successful delivery of 12+ system enhancement projects through structured agile processes. I facilitate cross-functional workshops with business units, IT teams, and program managers to ensure alignment on project scope and deliverables. At Asurion, I managed 8+ concurrent initiatives simultaneously, maintaining clear communication channels and stakeholder engagement. My approach combines agile flexibility with structured documentation to ensure iterative solution development meets business requirements.",
+        "category": "agile_delivery",
+        "keywords": ["agile delivery", "sprint planning", "backlog management", "project coordination", "workshops"]
+      }
+    ],
+    "customer_experience": [
+      {
+        "question": "How do you approach customer journey mapping?",
+        "answer": "My approach to journey mapping is data-driven and customer-centric, as demonstrated at Asurion where I managed end-to-end support for product and service complaints. I focus on identifying pain points and opportunities for improvement. For example, at e& by Etisalat, I helped launch the Help & Support app feature by mapping customer journeys, which resulted in a 50% reduction in direct agent contact while maintaining high customer satisfaction.",
+        "category": "journey_mapping",
+        "keywords": ["journey mapping", "customer-centric", "process improvement"]
+      },
+      {
+        "question": "Tell me about a time when you improved a customer experience process.",
+        "answer": "At e& by Etisalat, I identified opportunities to improve the FAQ resolution process through detailed analysis and customer feedback. By implementing optimized knowledge management and training frontline staff, we achieved an 80% improvement in FAQ resolution time. This project demonstrated my ability to analyze processes, implement solutions, and measure outcomes effectively.",
+        "category": "process_improvement",
+        "keywords": ["process improvement", "analysis", "implementation"]
+      }
+    ],
+    "technical_skills": [
+      {
+        "question": "What help desk and support systems have you worked with?",
+        "answer": "In my role at Etisalat, I worked extensively with various help desk and support systems including ServiceNow for ticket management, SharePoint and custom CMS for knowledge base management, and Genesys for contact center operations. I also helped implement and optimize chatbot solutions integrated with the knowledge base, improving first-contact resolution rates by 40%. My experience includes configuring workflows, creating templates, and establishing SLA monitoring systems.",
+        "category": "help_desk_systems",
+        "keywords": ["help desk", "support systems", "ServiceNow", "knowledge base", "chatbot"]
+      },
+      {
+        "question": "What tools and technologies are you proficient in?",
+        "answer": "I'm proficient in several key BA and CX tools: Advanced in Excel and intermediate in Power BI for data analysis and reporting, experienced with CRM systems including Horizon Console One and Siebel, skilled in documentation tools like Confluence and SharePoint, familiar with Jira for project tracking, and recent experience with AI tools including RAG pipelines and conversational AI.",
+        "category": "tools_proficiency",
+        "keywords": ["tools", "technologies", "software"]
+      },
+      {
+        "question": "How do you approach process analysis and optimization?",
+        "answer": "I take a systematic approach to process analysis, combining data analysis with stakeholder input. At Asurion, I improved efficiency by 35% through careful analysis of existing processes, identification of bottlenecks, and implementation of streamlined workflows. I use tools like Excel and Power BI for data analysis and ensure all process changes are properly documented and communicated to stakeholders.",
+        "category": "process_analysis",
+        "keywords": ["process analysis", "optimization", "data analysis"]
+      }
+    ],
+    "project_management": [
+      {
+        "question": "Tell me about a challenging project you managed and how you ensured its success.",
+        "answer": "At e& by Etisalat, I led the implementation of the Help & Support app feature, a challenging project that required coordination across multiple teams. The key challenges included managing diverse stakeholder expectations, ensuring comprehensive knowledge base coverage, and training frontline staff on new processes. I overcame these challenges through regular stakeholder workshops, clear communication, systematic documentation, and comprehensive training programs. The result was a 50% reduction in direct agent contact and 80% improvement in FAQ resolution time.",
+        "category": "project_success",
+        "keywords": ["project management", "challenges", "implementation"]
+      }
+    ]
+  },
+  "metadata": {
+    "created": "2025-09-11T09:42:50.589375",
+    "updated": "2025-09-27T00:00:00.000000",
+    "version": "2.0",
+    "data_quality_score": 100,
+    "completeness": {
+      "personal_info": "100%",
+      "professional_experience": "100%",
+      "education": "100%",
+      "core_competencies": "100%",
+      "professional_development": "100%",
+      "interview_qa": "100%"
+    },
+    "cv_update": {
+      "source": "Comprehensive CV with 13+ years progressive experience",
+      "key_updates": [
+        "Updated professional summary with digital transformation focus",
+        "Added comprehensive core competencies section",
+        "Detailed professional experience with quantified achievements",
+        "Updated education and professional development",
+        "Enhanced interview Q&A with specific examples and metrics",
+        "Added recent AI workshop and project experience"
+      ]
+    }
+  }
+}
