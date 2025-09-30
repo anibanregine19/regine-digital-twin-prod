@@ -8,6 +8,24 @@
 
 > **Professional AI-powered Digital Twin showcasing 13+ years of Business Analysis expertise with advanced RAG capabilities and PostgreSQL analytics.**
 
+## 📚 **Documentation**
+
+Choose your path based on your experience level:
+
+### For Beginners
+- ⚡ **[Quick Start](./QUICK_START.md)** - Get running in 15 minutes
+- 📋 **[Deployment Checklist](./DEPLOYMENT_CHECKLIST.md)** - Print and check off as you go
+
+### Detailed Guides
+- 🚀 **[Complete Setup Guide](./SETUP_GUIDE.md)** - Step-by-step with explanations (30-60 min)
+- 🔧 **[Troubleshooting Guide](./TROUBLESHOOTING.md)** - Solutions for common issues
+
+### Technical Reference
+- 📖 **[This README](#)** - Technical overview and API documentation
+- 🔬 **[verify_deployment.py](./verify_deployment.py)** - Automated testing script
+
+**New to this project?** Start with [Quick Start](./QUICK_START.md) or the detailed [Setup Guide](./SETUP_GUIDE.md)!
+
 ## 🎯 **What This Is**
 
 An intelligent digital twin that represents my professional experience, skills, and achievements. Built with enterprise-grade technology stack for recruiters, hiring managers, and professional networking.
@@ -228,8 +246,37 @@ CREATE TABLE popular_questions (
 
 ### **Technical Support**
 - 🐛 **Issues**: Use GitHub Issues for bug reports
-- 📖 **Documentation**: See `NEON_DEPLOYMENT_GUIDE.md`
-- 🔧 **Configuration**: Check environment variables
+- 📖 **Documentation**: See [SETUP_GUIDE.md](./SETUP_GUIDE.md) and [TROUBLESHOOTING.md](./TROUBLESHOOTING.md)
+- 🔧 **Configuration**: Check environment variables in `.env.example`
+
+## 🧪 **Testing Your Deployment**
+
+After deploying to Vercel, verify everything works:
+
+### Quick Manual Test
+```bash
+# Test health check
+curl https://your-app.vercel.app/health
+
+# Test API
+curl https://your-app.vercel.app/api/test
+```
+
+### Automated Testing
+Run the verification script:
+```bash
+python verify_deployment.py https://your-app.vercel.app
+```
+
+This will test all endpoints and verify service connections.
+
+### Expected Results
+- ✅ All endpoints return 200 status
+- ✅ Health check shows services "connected" or "configured"
+- ✅ API test returns success message
+- ✅ No errors in Vercel function logs
+
+See [TROUBLESHOOTING.md](./TROUBLESHOOTING.md) if any tests fail.
 
 ## 🏆 **About Regine Aniban**
 
