@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Enhanced Digital Twin MCP Server for Vercel + Neon PostgreSQL
-Serverless-optimized version with lazy initialization
+Vercel-Compatible Digital Twin API
+Fixed for Vercel Python runtime
 """
 
 import json
@@ -11,22 +11,11 @@ import time
 import psycopg2
 from datetime import datetime
 from typing import List, Dict, Any, Optional
-from functools import lru_cache
-from flask import Flask, request, jsonify
-from flask_cors import CORS
-from dotenv import load_dotenv
 import requests
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-# Load environment variables
-load_dotenv()
-
-# Create Flask app
-app = Flask(__name__)
-CORS(app, origins=["*"])
 
 class EnhancedDigitalTwin:
     def __init__(self):
@@ -37,15 +26,11 @@ class EnhancedDigitalTwin:
         self._db_initialized = False
     
     def ensure_database_setup(self):
-        """Lazy database initialization - only run when needed"""
-        if self._db_initialized:
+        """Lazy database initialization"""
+        if self._db_initialized or not self.db_url:
             return
             
         try:
-            if not self.db_url:
-                logger.warning("DATABASE_URL not configured")
-                return
-                
             conn = psycopg2.connect(self.db_url)
             cur = conn.cursor()
             
@@ -89,7 +74,6 @@ class EnhancedDigitalTwin:
         """Search Upstash Vector database"""
         try:
             if not self.upstash_url or not self.upstash_token:
-                logger.warning("Upstash credentials not configured")
                 return []
                 
             headers = {
@@ -114,9 +98,7 @@ class EnhancedDigitalTwin:
             if response.status_code == 200:
                 results = response.json()
                 return results.get('result', [])
-            else:
-                logger.error(f"Vector search failed: {response.status_code}")
-                return []
+            return []
                 
         except Exception as e:
             logger.error(f"Vector search error: {e}")
@@ -140,16 +122,11 @@ Context:
 
 Question: {query}
 
-Please provide a detailed, professional response that directly addresses the question using the context provided. If the context doesn't contain enough information, provide a helpful response based on what is available."""
+Please provide a detailed, professional response that directly addresses the question using the context provided."""
 
             data = {
                 'model': 'llama-3.1-8b-instant',
-                'messages': [
-                    {
-                        'role': 'user',
-                        'content': prompt
-                    }
-                ],
+                'messages': [{'role': 'user', 'content': prompt}],
                 'max_tokens': 1000,
                 'temperature': 0.7
             }
@@ -164,57 +141,29 @@ Please provide a detailed, professional response that directly addresses the que
             if response.status_code == 200:
                 result = response.json()
                 return result['choices'][0]['message']['content']
-            else:
-                logger.error(f"Groq API failed: {response.status_code}")
-                return "I apologize, but I'm having trouble generating a response right now. Please try again later."
+            return "I apologize, but I'm having trouble generating a response right now."
                 
         except Exception as e:
             logger.error(f"Response generation error: {e}")
-            return "I apologize, but I'm experiencing technical difficulties. Please try again later."
+            return "I apologize, but I'm experiencing technical difficulties."
     
     def categorize_query(self, query: str) -> str:
-        """Categorize the user query"""
+        """Categorize user query"""
         query_lower = query.lower()
         
-        if any(word in query_lower for word in ['competenc', 'skill', 'abilit', 'strength']):
+        if any(word in query_lower for word in ['competenc', 'skill', 'abilit']):
             return 'competencies'
-        elif any(word in query_lower for word in ['experience', 'work', 'job', 'role', 'position', 'asurion', 'etisalat']):
+        elif any(word in query_lower for word in ['experience', 'work', 'job', 'asurion', 'etisalat']):
             return 'experience'
-        elif any(word in query_lower for word in ['stakeholder', 'manage', 'leadership', 'team']):
+        elif any(word in query_lower for word in ['stakeholder', 'manage', 'leadership']):
             return 'stakeholder_management'
-        elif any(word in query_lower for word in ['methodolog', 'framework', 'approach', 'process']):
+        elif any(word in query_lower for word in ['methodolog', 'framework', 'approach']):
             return 'methodologies'
-        elif any(word in query_lower for word in ['achievement', 'award', 'accomplish', 'success']):
+        elif any(word in query_lower for word in ['achievement', 'award', 'accomplish']):
             return 'achievements'
-        else:
-            return 'general'
+        return 'general'
     
-    def log_chat(self, query: str, response: str, response_time: float, vector_hits: int, user_ip: str = None, user_agent: str = None):
-        """Log chat interaction to PostgreSQL"""
-        try:
-            if not self.db_url:
-                return  # Skip logging if no database configured
-                
-            self.ensure_database_setup()
-            
-            conn = psycopg2.connect(self.db_url)
-            cur = conn.cursor()
-            
-            category = self.categorize_query(query)
-            
-            cur.execute("""
-                INSERT INTO chat_logs (query, response, response_time, vector_hits, query_category, user_ip, user_agent)
-                VALUES (%s, %s, %s, %s, %s, %s, %s)
-            """, (query, response, response_time, vector_hits, category, user_ip, user_agent))
-            
-            conn.commit()
-            cur.close()
-            conn.close()
-            
-        except Exception as e:
-            logger.error(f"Chat logging error: {e}")
-    
-    def answer_query(self, query: str, user_ip: str = None, user_agent: str = None) -> Dict[str, Any]:
+    def answer_query(self, query: str) -> Dict[str, Any]:
         """Main query answering function"""
         start_time = time.time()
         
@@ -222,9 +171,9 @@ Please provide a detailed, professional response that directly addresses the que
             # Search vector database
             search_results = self.vector_search(query)
             
-            # Build context from search results
+            # Build context
             context_parts = []
-            for result in search_results[:3]:  # Use top 3 results
+            for result in search_results[:3]:
                 if result.get('metadata'):
                     context_parts.append(result['metadata'].get('text', ''))
             
@@ -232,18 +181,13 @@ Please provide a detailed, professional response that directly addresses the que
             
             # Generate response
             response = self.generate_response(query, context)
-            
             response_time = time.time() - start_time
-            vector_hits = len(search_results)
-            
-            # Log the interaction
-            self.log_chat(query, response, response_time, vector_hits, user_ip, user_agent)
             
             return {
                 'content': response,
                 'metadata': {
                     'response_time': round(response_time, 2),
-                    'vector_hits': vector_hits,
+                    'vector_hits': len(search_results),
                     'category': self.categorize_query(query),
                     'context_used': len(context_parts)
                 }
@@ -252,186 +196,117 @@ Please provide a detailed, professional response that directly addresses the que
         except Exception as e:
             logger.error(f"Query processing error: {e}")
             return {
-                'content': "I apologize, but I'm experiencing technical difficulties. Please try again later.",
-                'metadata': {
-                    'error': str(e),
-                    'response_time': time.time() - start_time
-                }
+                'content': "I apologize, but I'm experiencing technical difficulties.",
+                'metadata': {'error': str(e)}
             }
-    
-    def get_analytics(self) -> Dict[str, Any]:
-        """Get chat analytics"""
-        try:
-            if not self.db_url:
-                return {'error': 'Database not configured'}
-                
-            self.ensure_database_setup()
+
+# Global instance
+digital_twin = EnhancedDigitalTwin()
+
+def handler(request, context):
+    """Vercel serverless function handler"""
+    try:
+        # Parse request
+        method = request.get('httpMethod', 'GET')
+        path = request.get('path', '/')
+        query_params = request.get('queryStringParameters') or {}
+        headers = request.get('headers', {})
+        body = request.get('body', '')
+        
+        # Parse JSON body for POST requests
+        json_body = {}
+        if method == 'POST' and body:
+            try:
+                json_body = json.loads(body)
+            except:
+                pass
+        
+        # Route handling
+        if path == '/health':
+            # Health check
+            return {
+                'statusCode': 200,
+                'headers': {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+                    'Access-Control-Allow-Headers': 'Content-Type'
+                },
+                'body': json.dumps({
+                    'status': 'healthy',
+                    'timestamp': datetime.now().isoformat(),
+                    'services': {
+                        'database': 'configured' if digital_twin.db_url else 'not_configured',
+                        'vector_db': 'configured' if digital_twin.upstash_url else 'not_configured',
+                        'groq_api': 'configured' if digital_twin.groq_api_key else 'not_configured'
+                    }
+                })
+            }
+        
+        elif path == '/api/test':
+            # Test endpoint
+            return {
+                'statusCode': 200,
+                'headers': {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                'body': json.dumps({
+                    'message': "Regine's Digital Twin API is working!",
+                    'timestamp': datetime.now().isoformat(),
+                    'version': '3.0',
+                    'features': ['AI Chat', 'Analytics', 'Vector Search']
+                })
+            }
+        
+        elif path == '/api/query' and method == 'POST':
+            # Query endpoint
+            query_text = json_body.get('query', '').strip()
             
-            conn = psycopg2.connect(self.db_url)
-            cur = conn.cursor()
+            if not query_text:
+                return {
+                    'statusCode': 400,
+                    'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
+                    'body': json.dumps({'error': 'Query is required'})
+                }
             
-            # Total chats
-            cur.execute("SELECT COUNT(*) FROM chat_logs")
-            total_chats = cur.fetchone()[0]
-            
-            # Average response time
-            cur.execute("SELECT AVG(response_time) FROM chat_logs")
-            avg_response_time = cur.fetchone()[0] or 0
-            
-            # Popular categories
-            cur.execute("""
-                SELECT query_category, COUNT(*) as count 
-                FROM chat_logs 
-                GROUP BY query_category 
-                ORDER BY count DESC 
-                LIMIT 5
-            """)
-            popular_categories = cur.fetchall()
-            
-            # Recent chats
-            cur.execute("""
-                SELECT query, created_at 
-                FROM chat_logs 
-                ORDER BY created_at DESC 
-                LIMIT 10
-            """)
-            recent_chats = cur.fetchall()
-            
-            cur.close()
-            conn.close()
+            result = digital_twin.answer_query(query_text)
             
             return {
-                'total_chats': total_chats,
-                'avg_response_time': round(avg_response_time, 2),
-                'popular_categories': [{'category': cat, 'count': count} for cat, count in popular_categories],
-                'recent_chats': [{'query': query, 'timestamp': timestamp.isoformat()} for query, timestamp in recent_chats]
+                'statusCode': 200,
+                'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
+                'body': json.dumps(result)
             }
-            
-        except Exception as e:
-            logger.error(f"Analytics error: {e}")
-            return {'error': str(e)}
-
-# Global instance - but lazy initialization
-digital_twin = None
-
-def get_digital_twin():
-    """Get or create digital twin instance"""
-    global digital_twin
-    if digital_twin is None:
-        digital_twin = EnhancedDigitalTwin()
-    return digital_twin
-
-# Flask routes
-@app.route('/health', methods=['GET'])
-def health():
-    """Health check endpoint"""
-    try:
-        dt = get_digital_twin()
         
-        # Test database connection
-        db_status = "not_configured"
-        if dt.db_url:
-            try:
-                conn = psycopg2.connect(dt.db_url)
-                conn.close()
-                db_status = "connected"
-            except:
-                db_status = "error"
-        
-        # Test Upstash connection
-        upstash_status = "not_configured"
-        if dt.upstash_url and dt.upstash_token:
-            try:
-                headers = {'Authorization': f'Bearer {dt.upstash_token}'}
-                response = requests.get(f'{dt.upstash_url}/info', headers=headers, timeout=5)
-                upstash_status = "connected" if response.status_code == 200 else "error"
-            except:
-                upstash_status = "error"
-        
-        return jsonify({
-            'status': 'healthy',
-            'timestamp': datetime.now().isoformat(),
-            'services': {
-                'database': db_status,
-                'vector_db': upstash_status,
-                'groq_api': 'configured' if dt.groq_api_key else 'not_configured'
+        elif path == '/' or path == '':
+            # Home endpoint
+            return {
+                'statusCode': 200,
+                'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
+                'body': json.dumps({
+                    'name': "Regine's Professional Digital Twin",
+                    'description': 'AI-powered assistant showcasing 13+ years of Business Analysis expertise',
+                    'endpoints': {
+                        'health': '/health',
+                        'test': '/api/test',
+                        'query': '/api/query (POST)'
+                    },
+                    'version': '3.0'
+                })
             }
-        })
         
+        else:
+            # 404 Not Found
+            return {
+                'statusCode': 404,
+                'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
+                'body': json.dumps({'error': 'Not Found'})
+            }
+    
     except Exception as e:
-        logger.error(f"Health check error: {e}")
-        return jsonify({
-            'status': 'error',
-            'timestamp': datetime.now().isoformat(),
-            'error': str(e)
-        }), 500
-
-@app.route('/api/test', methods=['GET'])
-def test():
-    """Quick test endpoint"""
-    return jsonify({
-        'message': "Regine's Digital Twin API is working!",
-        'timestamp': datetime.now().isoformat(),
-        'version': '2.1',
-        'features': ['AI Chat', 'Analytics', 'Vector Search'],
-        'status': 'serverless_optimized'
-    })
-
-@app.route('/api/query', methods=['POST'])
-def query():
-    """Main query endpoint"""
-    try:
-        data = request.get_json()
-        query_text = data.get('query', '').strip()
-        
-        if not query_text:
-            return jsonify({'error': 'Query is required'}), 400
-        
-        dt = get_digital_twin()
-        user_ip = request.remote_addr
-        user_agent = request.headers.get('User-Agent')
-        
-        result = dt.answer_query(query_text, user_ip, user_agent)
-        
-        return jsonify(result)
-        
-    except Exception as e:
-        logger.error(f"Query endpoint error: {e}")
-        return jsonify({'error': 'Internal server error'}), 500
-
-@app.route('/api/analytics', methods=['GET'])
-def analytics():
-    """Analytics endpoint"""
-    try:
-        dt = get_digital_twin()
-        data = dt.get_analytics()
-        return jsonify(data)
-    except Exception as e:
-        logger.error(f"Analytics endpoint error: {e}")
-        return jsonify({'error': 'Analytics unavailable'}), 500
-
-@app.route('/', methods=['GET'])
-def home():
-    """Home endpoint"""
-    return jsonify({
-        'name': "Regine's Professional Digital Twin",
-        'description': 'AI-powered assistant showcasing 13+ years of Business Analysis expertise',
-        'endpoints': {
-            'health': '/health',
-            'test': '/api/test',
-            'query': '/api/query (POST)',
-            'analytics': '/api/analytics'
-        },
-        'version': '2.1',
-        'optimization': 'serverless'
-    })
-
-# Vercel serverless function handler
-def handler(request):
-    """Vercel serverless function handler"""
-    return app(request.environ, lambda status, headers: None)
-
-if __name__ == '__main__':
-    # For local development
-    port = int(os.getenv('PORT', 8000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+        logger.error(f"Handler error: {e}")
+        return {
+            'statusCode': 500,
+            'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
+            'body': json.dumps({'error': 'Internal server error'})
+        }
