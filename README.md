@@ -8,6 +8,14 @@
 
 > **Professional AI-powered Digital Twin showcasing 13+ years of Business Analysis expertise with advanced RAG capabilities and PostgreSQL analytics.**
 
+## 📚 **Documentation**
+
+- 🚀 **[Complete Setup Guide](./SETUP_GUIDE.md)** - Step-by-step deployment instructions for beginners
+- 🔧 **[Troubleshooting Guide](./TROUBLESHOOTING.md)** - Quick solutions for common issues
+- 📖 **[This README](#)** - Technical overview and API reference
+
+**New to this project?** Start with the [Setup Guide](./SETUP_GUIDE.md)!
+
 ## 🎯 **What This Is**
 
 An intelligent digital twin that represents my professional experience, skills, and achievements. Built with enterprise-grade technology stack for recruiters, hiring managers, and professional networking.
