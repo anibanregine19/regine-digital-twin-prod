@@ -25,51 +25,6 @@ class EnhancedDigitalTwin:
         self.groq_api_key = os.getenv('GROQ_API_KEY')
         self._db_initialized = False
     
-    def ensure_database_setup(self):
-        """Lazy database initialization"""
-        if self._db_initialized or not self.db_url:
-            return
-            
-        try:
-            conn = psycopg2.connect(self.db_url)
-            cur = conn.cursor()
-            
-            # Create chat_logs table
-            cur.execute("""
-                CREATE TABLE IF NOT EXISTS chat_logs (
-                    id SERIAL PRIMARY KEY,
-                    query TEXT NOT NULL,
-                    response TEXT NOT NULL,
-                    response_time FLOAT,
-                    vector_hits INTEGER,
-                    query_category VARCHAR(50),
-                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                    user_ip VARCHAR(45),
-                    user_agent TEXT
-                );
-            """)
-            
-            # Create popular_questions table
-            cur.execute("""
-                CREATE TABLE IF NOT EXISTS popular_questions (
-                    id SERIAL PRIMARY KEY,
-                    question_type VARCHAR(100),
-                    question_text TEXT,
-                    ask_count INTEGER DEFAULT 1,
-                    avg_response_time FLOAT,
-                    last_asked TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                );
-            """)
-            
-            conn.commit()
-            cur.close()
-            conn.close()
-            self._db_initialized = True
-            logger.info("Database tables created successfully")
-            
-        except Exception as e:
-            logger.error(f"Database setup error: {e}")
-    
     def vector_search(self, query: str, limit: int = 5) -> List[Dict]:
         """Search Upstash Vector database"""
         try:
@@ -147,22 +102,6 @@ Please provide a detailed, professional response that directly addresses the que
             logger.error(f"Response generation error: {e}")
             return "I apologize, but I'm experiencing technical difficulties."
     
-    def categorize_query(self, query: str) -> str:
-        """Categorize user query"""
-        query_lower = query.lower()
-        
-        if any(word in query_lower for word in ['competenc', 'skill', 'abilit']):
-            return 'competencies'
-        elif any(word in query_lower for word in ['experience', 'work', 'job', 'asurion', 'etisalat']):
-            return 'experience'
-        elif any(word in query_lower for word in ['stakeholder', 'manage', 'leadership']):
-            return 'stakeholder_management'
-        elif any(word in query_lower for word in ['methodolog', 'framework', 'approach']):
-            return 'methodologies'
-        elif any(word in query_lower for word in ['achievement', 'award', 'accomplish']):
-            return 'achievements'
-        return 'general'
-    
     def answer_query(self, query: str) -> Dict[str, Any]:
         """Main query answering function"""
         start_time = time.time()
@@ -188,7 +127,6 @@ Please provide a detailed, professional response that directly addresses the que
                 'metadata': {
                     'response_time': round(response_time, 2),
                     'vector_hits': len(search_results),
-                    'category': self.categorize_query(query),
                     'context_used': len(context_parts)
                 }
             }
@@ -209,8 +147,6 @@ def handler(request, context):
         # Parse request
         method = request.get('httpMethod', 'GET')
         path = request.get('path', '/')
-        query_params = request.get('queryStringParameters') or {}
-        headers = request.get('headers', {})
         body = request.get('body', '')
         
         # Parse JSON body for POST requests
@@ -223,15 +159,9 @@ def handler(request, context):
         
         # Route handling
         if path == '/health':
-            # Health check
             return {
                 'statusCode': 200,
-                'headers': {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-                    'Access-Control-Allow-Headers': 'Content-Type'
-                },
+                'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
                 'body': json.dumps({
                     'status': 'healthy',
                     'timestamp': datetime.now().isoformat(),
@@ -244,23 +174,18 @@ def handler(request, context):
             }
         
         elif path == '/api/test':
-            # Test endpoint
             return {
                 'statusCode': 200,
-                'headers': {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
-                },
+                'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
                 'body': json.dumps({
                     'message': "Regine's Digital Twin API is working!",
                     'timestamp': datetime.now().isoformat(),
                     'version': '3.0',
-                    'features': ['AI Chat', 'Analytics', 'Vector Search']
+                    'features': ['AI Chat', 'Vector Search']
                 })
             }
         
         elif path == '/api/query' and method == 'POST':
-            # Query endpoint
             query_text = json_body.get('query', '').strip()
             
             if not query_text:
@@ -278,8 +203,7 @@ def handler(request, context):
                 'body': json.dumps(result)
             }
         
-        elif path == '/' or path == '':
-            # Home endpoint
+        else:
             return {
                 'statusCode': 200,
                 'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
@@ -293,14 +217,6 @@ def handler(request, context):
                     },
                     'version': '3.0'
                 })
-            }
-        
-        else:
-            # 404 Not Found
-            return {
-                'statusCode': 404,
-                'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
-                'body': json.dumps({'error': 'Not Found'})
             }
     
     except Exception as e:
