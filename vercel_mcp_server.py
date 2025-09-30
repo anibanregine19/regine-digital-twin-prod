@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Enhanced Digital Twin MCP Server for Vercel + Neon PostgreSQL
-Standalone version - no external imports
+Serverless-optimized version with lazy initialization
 """
 
 import json
@@ -34,11 +34,18 @@ class EnhancedDigitalTwin:
         self.upstash_url = os.getenv('UPSTASH_VECTOR_REST_URL')
         self.upstash_token = os.getenv('UPSTASH_VECTOR_REST_TOKEN')
         self.groq_api_key = os.getenv('GROQ_API_KEY')
-        self.setup_database()
+        self._db_initialized = False
     
-    def setup_database(self):
-        """Create PostgreSQL tables for analytics"""
+    def ensure_database_setup(self):
+        """Lazy database initialization - only run when needed"""
+        if self._db_initialized:
+            return
+            
         try:
+            if not self.db_url:
+                logger.warning("DATABASE_URL not configured")
+                return
+                
             conn = psycopg2.connect(self.db_url)
             cur = conn.cursor()
             
@@ -72,6 +79,7 @@ class EnhancedDigitalTwin:
             conn.commit()
             cur.close()
             conn.close()
+            self._db_initialized = True
             logger.info("Database tables created successfully")
             
         except Exception as e:
@@ -80,6 +88,10 @@ class EnhancedDigitalTwin:
     def vector_search(self, query: str, limit: int = 5) -> List[Dict]:
         """Search Upstash Vector database"""
         try:
+            if not self.upstash_url or not self.upstash_token:
+                logger.warning("Upstash credentials not configured")
+                return []
+                
             headers = {
                 'Authorization': f'Bearer {self.upstash_token}',
                 'Content-Type': 'application/json'
@@ -113,6 +125,9 @@ class EnhancedDigitalTwin:
     def generate_response(self, query: str, context: str) -> str:
         """Generate response using Groq"""
         try:
+            if not self.groq_api_key:
+                return "I apologize, but the AI service is not properly configured."
+                
             headers = {
                 'Authorization': f'Bearer {self.groq_api_key}',
                 'Content-Type': 'application/json'
@@ -177,6 +192,11 @@ Please provide a detailed, professional response that directly addresses the que
     def log_chat(self, query: str, response: str, response_time: float, vector_hits: int, user_ip: str = None, user_agent: str = None):
         """Log chat interaction to PostgreSQL"""
         try:
+            if not self.db_url:
+                return  # Skip logging if no database configured
+                
+            self.ensure_database_setup()
+            
             conn = psycopg2.connect(self.db_url)
             cur = conn.cursor()
             
@@ -242,6 +262,11 @@ Please provide a detailed, professional response that directly addresses the que
     def get_analytics(self) -> Dict[str, Any]:
         """Get chat analytics"""
         try:
+            if not self.db_url:
+                return {'error': 'Database not configured'}
+                
+            self.ensure_database_setup()
+            
             conn = psycopg2.connect(self.db_url)
             cur = conn.cursor()
             
@@ -286,38 +311,60 @@ Please provide a detailed, professional response that directly addresses the que
             logger.error(f"Analytics error: {e}")
             return {'error': str(e)}
 
-# Initialize the enhanced digital twin
-digital_twin = EnhancedDigitalTwin()
+# Global instance - but lazy initialization
+digital_twin = None
+
+def get_digital_twin():
+    """Get or create digital twin instance"""
+    global digital_twin
+    if digital_twin is None:
+        digital_twin = EnhancedDigitalTwin()
+    return digital_twin
 
 # Flask routes
 @app.route('/health', methods=['GET'])
 def health():
     """Health check endpoint"""
     try:
+        dt = get_digital_twin()
+        
         # Test database connection
-        conn = psycopg2.connect(digital_twin.db_url)
-        conn.close()
-        db_status = "connected"
-    except:
-        db_status = "error"
-    
-    # Test Upstash connection
-    try:
-        headers = {'Authorization': f'Bearer {digital_twin.upstash_token}'}
-        response = requests.get(f'{digital_twin.upstash_url}/info', headers=headers, timeout=5)
-        upstash_status = "connected" if response.status_code == 200 else "error"
-    except:
-        upstash_status = "error"
-    
-    return jsonify({
-        'status': 'healthy',
-        'timestamp': datetime.now().isoformat(),
-        'services': {
-            'database': db_status,
-            'vector_db': upstash_status,
-            'groq_api': 'configured' if digital_twin.groq_api_key else 'missing'
-        }
-    })
+        db_status = "not_configured"
+        if dt.db_url:
+            try:
+                conn = psycopg2.connect(dt.db_url)
+                conn.close()
+                db_status = "connected"
+            except:
+                db_status = "error"
+        
+        # Test Upstash connection
+        upstash_status = "not_configured"
+        if dt.upstash_url and dt.upstash_token:
+            try:
+                headers = {'Authorization': f'Bearer {dt.upstash_token}'}
+                response = requests.get(f'{dt.upstash_url}/info', headers=headers, timeout=5)
+                upstash_status = "connected" if response.status_code == 200 else "error"
+            except:
+                upstash_status = "error"
+        
+        return jsonify({
+            'status': 'healthy',
+            'timestamp': datetime.now().isoformat(),
+            'services': {
+                'database': db_status,
+                'vector_db': upstash_status,
+                'groq_api': 'configured' if dt.groq_api_key else 'not_configured'
+            }
+        })
+        
+    except Exception as e:
+        logger.error(f"Health check error: {e}")
+        return jsonify({
+            'status': 'error',
+            'timestamp': datetime.now().isoformat(),
+            'error': str(e)
+        }), 500
 
 @app.route('/api/test', methods=['GET'])
 def test():
@@ -325,8 +372,9 @@ def test():
     return jsonify({
         'message': "Regine's Digital Twin API is working!",
         'timestamp': datetime.now().isoformat(),
-        'version': '2.0',
-        'features': ['AI Chat', 'Analytics', 'Vector Search']
+        'version': '2.1',
+        'features': ['AI Chat', 'Analytics', 'Vector Search'],
+        'status': 'serverless_optimized'
     })
 
 @app.route('/api/query', methods=['POST'])
@@ -339,10 +387,11 @@ def query():
         if not query_text:
             return jsonify({'error': 'Query is required'}), 400
         
+        dt = get_digital_twin()
         user_ip = request.remote_addr
         user_agent = request.headers.get('User-Agent')
         
-        result = digital_twin.answer_query(query_text, user_ip, user_agent)
+        result = dt.answer_query(query_text, user_ip, user_agent)
         
         return jsonify(result)
         
@@ -354,7 +403,8 @@ def query():
 def analytics():
     """Analytics endpoint"""
     try:
-        data = digital_twin.get_analytics()
+        dt = get_digital_twin()
+        data = dt.get_analytics()
         return jsonify(data)
     except Exception as e:
         logger.error(f"Analytics endpoint error: {e}")
@@ -372,7 +422,8 @@ def home():
             'query': '/api/query (POST)',
             'analytics': '/api/analytics'
         },
-        'version': '2.0'
+        'version': '2.1',
+        'optimization': 'serverless'
     })
 
 # Vercel serverless function handler
